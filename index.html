@@ -45,7 +45,6 @@
 </head>
 <body>
   <div class="instructions" id="soundBtn" onclick="unlockVideo()">🔊 Toca aquí para activar el sonido</div>
-
   <a-scene
     mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: yes; filterMinCF: 0.0001; filterBeta: 0.001;"
     color-space="sRGB"
@@ -56,22 +55,18 @@
     <a-assets timeout="8000">
       <video id="dogVideo" src="./video.mp4" preload="auto" loop="true" playsinline webkit-playsinline></video>
     </a-assets>
-
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
     <a-entity mindar-image-target="targetIndex: 0">
       <a-video src="#dogVideo" width="1" height="1.333" position="0 0 0" rotation="0 0 0"></a-video>
     </a-entity>
   </a-scene>
-
   <button class="cert-btn" onclick="document.getElementById('certPanel').style.display='block'">📜 Ver certificado</button>
-
   <div class="cert-panel" id="certPanel">
     <button class="cert-close" onclick="document.getElementById('certPanel').style.display='none'">✕</button>
     <h2>Milo</h2>
     <div class="sub">Certificado digital · N° CHD-2026-003</div>
     <table>
-      <tr><td>Técnica</td><td>Pintura textil (Politek + Soft Fabric Medium) sobre chamarra de mezclilla + video de Realidad Aumentada</td></tr>
+      <tr><td>Técnica</td><td>Pintura textil (Acrílico textil + Soft Fabric Medium) sobre chamarra de mezclilla + video de Realidad Aumentada</td></tr>
       <tr><td>Tamaño</td><td>A4 aprox.</td></tr>
       <tr><td>Estilo</td><td>Obra realista</td></tr>
       <tr><td>Artista</td><td>Char Daniel Delgado</td></tr>
@@ -86,11 +81,9 @@
     </div>
     <div class="firma">— CHDB</div>
   </div>
-
   <script>
     const sceneEl = document.querySelector('a-scene');
     const video = document.querySelector('#dogVideo');
-
     function unlockVideo() {
       video.muted = false;
       video.play().then(() => {
@@ -104,7 +97,6 @@
         btn.textContent = '⚠️ Toca de nuevo para activar el sonido';
       });
     }
-
     sceneEl.addEventListener('targetFound', () => { video.play(); });
     sceneEl.addEventListener('targetLost', () => { video.pause(); });
   </script>
